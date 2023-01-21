@@ -4,7 +4,7 @@
 
 ## Syllabus
 
-- Week 1: Introduction & Prerequisites
+- Week 1: Introduction & Prerequisites ✅
 - Week 2: Data Ingestion
 - Week 3: Data Warehouse
 - Week 4: Analytics Engineering
@@ -16,7 +16,7 @@
 
 This is my solution for the homework, it may be wrong answer.
 
-[Week 1](TODO)
+[Week 1](./1_basics/homework/homework.md)
 [Week 2](TODO)
 [Week 3](TODO)
 [Week 4](TODO)

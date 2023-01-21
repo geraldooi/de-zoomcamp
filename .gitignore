@@ -1,5 +1,7 @@
 venv
 
 terraform.tfstate*
-
 .terraform*
+
+1_basics/docker/ny_taxi_data
+2_workflow_orchestration/ny_taxi_data
