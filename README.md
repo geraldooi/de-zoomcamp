@@ -17,6 +17,7 @@
 This is my solution for the homework, it may be wrong answer.
 
 [Week 1](./1_basics/homework/homework.md)  
+[Week 1 - Part B](./1_basics/homework/homework_partB.md)  
 [Week 2](TODO)  
 [Week 3](TODO)  
 [Week 4](TODO)  
