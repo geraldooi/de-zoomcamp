@@ -119,4 +119,5 @@ google_storage_bucket.data-lake-bucket: Creating...
 google_bigquery_dataset.dataset: Creation complete after 1s [id=projects/dtc-de-course-375108/datasets/trips_data_all]
 google_storage_bucket.data-lake-bucket: Creation complete after 3s [id=dtc_data_lake_dtc-de-course-375108]
 
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
