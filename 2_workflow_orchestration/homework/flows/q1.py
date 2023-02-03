@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from pathlib import Path
 from prefect import flow, task
@@ -7,6 +8,7 @@ from prefect_gcp.cloud_storage import GcsBucket
 @task(retries=3)
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read data from web into pandas DataFrame"""
+    
     df = pd.read_csv(dataset_url)
     return df
 
@@ -14,6 +16,7 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
+
     df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
     df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
     print(df.head(2))
@@ -25,14 +28,22 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
 @task(log_prints=True)
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write dataframe our locally as parquet file"""
-    path = Path(f"./data/{color}/{dataset_file}.parquet")
+
+    # Create directory if not exists
+    output_dir = f"./data/{color}"
+    if os.path.exists(output_dir):
+        os.mkdir(output_dir)
+    
+    path = Path(f"{output_dir}/{dataset_file}.parquet")
     df.to_parquet(path, compression="gzip")
+
     return path
 
 
 @task(log_prints=True)
 def write_gcs(path: Path) -> None:
     """Upload local parquet file to gcs"""
+
     gcp_cloud_storage_bucket_block = GcsBucket.load("prefect-de-zoomcamp-375108")
     gcp_cloud_storage_bucket_block.upload_from_path(
         from_path=path,
@@ -43,6 +54,7 @@ def write_gcs(path: Path) -> None:
 @flow()
 def etl_web_to_gcs(color: str = "green", year: int = 2020, month: int = 1) -> None:
     """The main ETL function"""
+
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
 
