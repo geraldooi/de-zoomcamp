@@ -32,7 +32,7 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     # Create directory if not exists
     output_dir = f"./data/{color}"
     if not os.path.exists(output_dir):
-        os.mkdir(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
     
     path = Path(f"{output_dir}/{dataset_file}.parquet")
     df.to_parquet(path, compression="gzip")
