@@ -44,10 +44,12 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
 def write_gcs(path: Path) -> None:
     """Upload local parquet file to gcs"""
 
+    color = str(path.parent).split('/')[-1]
+
     gcp_cloud_storage_bucket_block = GcsBucket.load("prefect-de-zoomcamp-375108")
     gcp_cloud_storage_bucket_block.upload_from_path(
         from_path=path,
-        to_path=path
+        to_path=f"data/{color}/{path.name}"
     )
 
 
