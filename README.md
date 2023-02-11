@@ -6,7 +6,7 @@
 
 - Week 1: Introduction & Prerequisites ✅
 - Week 2: Data Ingestion ✅
-- Week 3: Data Warehouse
+- Week 3: Data Warehouse ✅
 - Week 4: Analytics Engineering
 - Week 5: Batch Processing
 - Week 6: Streaming
@@ -19,7 +19,7 @@ This is my solution for the homework, it may be wrong answer.
 [Week 1](./1_basics/homework)  
 [Week 1 - Part B](./1_basics/homework/partB)  
 [Week 2](./2_workflow_orchestration/homework)  
-[Week 3](TODO)  
+[Week 3](./3_data_warehouse/homework)  
 [Week 4](TODO)  
 [Week 5](TODO)  
 [Week 6](TODO)
