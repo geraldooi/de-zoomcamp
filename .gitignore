@@ -11,6 +11,3 @@ terraform.tfstate*
 **/ny_taxi_data/
 postgres-database/
 
-# Large files
-**/*.csv.gz
-**/*.parquet
