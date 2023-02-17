@@ -14,3 +14,6 @@ postgres-database/
 # Large Files
 **/*.csv.gz
 **/*.parquet
+
+# dbt
+**/logs
