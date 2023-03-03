@@ -17,3 +17,10 @@ postgres-database/
 
 # dbt
 **/logs
+
+# 5_batch_processing
+5_batch_processing/data
+5_batch_processing/fhvhv
+5_batch_processing/*.csv
+5_batch_processing/homework/data
+5_batch_processing/homework/spark-warehouse
