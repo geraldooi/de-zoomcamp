@@ -17,6 +17,7 @@ postgres-database/
 
 # dbt
 **/logs
+**/.piperider
 
 # 5_batch_processing
 5_batch_processing/data
